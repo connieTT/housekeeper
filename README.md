@@ -1,2 +1,2 @@
-# housekeeper
-App that organizers open house walkthroughs
+# ohwta-ios
+Open House Walkthrough App for iOS
