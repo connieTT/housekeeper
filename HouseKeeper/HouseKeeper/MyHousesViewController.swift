@@ -17,23 +17,13 @@ class MyHousesViewController: UIViewController, UITableViewDelegate, UITableView
         super.loadView()
         
         // Self
-        
         title = "My Houses"
         
-        if (false) {
-            let registerViewController = RegistrationViewController()
-            present(registerViewController, animated: false, completion: nil)
-        }
-        
-        
         // Table View
-        
         let tableView = UITableView()
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(HouseTableViewCell.self, forCellReuseIdentifier: "cell")
-        
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) in
@@ -42,19 +32,25 @@ class MyHousesViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         // Bottom Toolbar
-        
         let bottomToolbar = UIToolbar()
-        
         let addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHouse))
         let cogButtonItem = UIBarButtonItem(image: UIImage(named: "Setting Cog"), style: .plain, target: self, action: #selector(openSettings))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         bottomToolbar.setItems([cogButtonItem, flexibleSpace, addButtonItem], animated: false)
-        
         view.addSubview(bottomToolbar)
         
         bottomToolbar.snp.makeConstraints { (make) in
             make.bottom.equalTo(0)
             make.width.equalToSuperview()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if (true) {
+            let registerViewController = RegistrationViewController()
+            present(registerViewController, animated: false, completion: nil)
         }
     }
     

@@ -8,12 +8,10 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UserViewController {
 
     override func loadView() {
         super.loadView()
-
-        view.backgroundColor = Style.redColor
     }
 
     override func didReceiveMemoryWarning() {
