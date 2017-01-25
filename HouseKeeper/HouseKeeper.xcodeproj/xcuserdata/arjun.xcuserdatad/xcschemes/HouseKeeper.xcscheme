@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DCE94F441DD10B57002FB232"
-            BuildableName = "Open House.app"
-            BlueprintName = "Open House"
-            ReferencedContainer = "container:Open House.xcodeproj">
+            BuildableName = "HouseKeeper.app"
+            BlueprintName = "HouseKeeper"
+            ReferencedContainer = "container:HouseKeeper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DCE94F441DD10B57002FB232"
-            BuildableName = "Open House.app"
-            BlueprintName = "Open House"
-            ReferencedContainer = "container:Open House.xcodeproj">
+            BuildableName = "HouseKeeper.app"
+            BlueprintName = "HouseKeeper"
+            ReferencedContainer = "container:HouseKeeper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

@@ -41,7 +41,7 @@
 		DC11A8BF1DD6795400E49EB0 /* Criterion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Criterion.swift; sourceTree = "<group>"; };
 		DC11A8C11DD67A3900E49EB0 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DC72A2C61DDF8D56009421E0 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
-		DCE94F451DD10B57002FB232 /* Open House.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open House.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE94F451DD10B57002FB232 /* HouseKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE94F481DD10B57002FB232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE94F4A1DD10B57002FB232 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		DCE94F4F1DD10B57002FB232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		DCE94F3C1DD10B57002FB232 = {
 			isa = PBXGroup;
 			children = (
-				DCE94F471DD10B57002FB232 /* OpenHouse */,
+				DCE94F471DD10B57002FB232 /* HouseKeeper */,
 				DCE94F461DD10B57002FB232 /* Products */,
 				F849E39FD26AA0D542984738 /* Pods */,
 				694373540FF10DCF6E974071 /* Frameworks */,
@@ -129,12 +129,12 @@
 		DCE94F461DD10B57002FB232 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCE94F451DD10B57002FB232 /* Open House.app */,
+				DCE94F451DD10B57002FB232 /* HouseKeeper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DCE94F471DD10B57002FB232 /* OpenHouse */ = {
+		DCE94F471DD10B57002FB232 /* HouseKeeper */ = {
 			isa = PBXGroup;
 			children = (
 				DCE94F481DD10B57002FB232 /* AppDelegate.swift */,
@@ -149,7 +149,7 @@
 				DCE94F511DD10B57002FB232 /* LaunchScreen.storyboard */,
 				DCE94F541DD10B57002FB232 /* Info.plist */,
 			);
-			path = OpenHouse;
+			path = HouseKeeper;
 			sourceTree = "<group>";
 		};
 		F849E39FD26AA0D542984738 /* Pods */ = {
@@ -164,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DCE94F441DD10B57002FB232 /* Open House */ = {
+		DCE94F441DD10B57002FB232 /* HouseKeeper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCE94F571DD10B57002FB232 /* Build configuration list for PBXNativeTarget "Open House" */;
+			buildConfigurationList = DCE94F571DD10B57002FB232 /* Build configuration list for PBXNativeTarget "HouseKeeper" */;
 			buildPhases = (
 				62A5A66B926CC50B459216FA /* Check Pods Manifest.lock */,
 				DCE94F411DD10B57002FB232 /* Sources */,
@@ -179,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = "Open House";
+			name = HouseKeeper;
 			productName = OpenHouse;
-			productReference = DCE94F451DD10B57002FB232 /* Open House.app */;
+			productReference = DCE94F451DD10B57002FB232 /* HouseKeeper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DCE94F401DD10B57002FB232 /* Build configuration list for PBXProject "Open House" */;
+			buildConfigurationList = DCE94F401DD10B57002FB232 /* Build configuration list for PBXProject "HouseKeeper" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -214,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCE94F441DD10B57002FB232 /* Open House */,
+				DCE94F441DD10B57002FB232 /* HouseKeeper */,
 			);
 		};
 /* End PBXProject section */
@@ -417,10 +417,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X35HA45VKT;
-				INFOPLIST_FILE = OpenHouse/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HouseKeeper/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.arjunchib.OpneHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.arjunchib.HouseKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -433,10 +433,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X35HA45VKT;
-				INFOPLIST_FILE = OpenHouse/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HouseKeeper/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.arjunchib.OpneHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.arjunchib.HouseKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -445,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DCE94F401DD10B57002FB232 /* Build configuration list for PBXProject "Open House" */ = {
+		DCE94F401DD10B57002FB232 /* Build configuration list for PBXProject "HouseKeeper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCE94F551DD10B57002FB232 /* Debug */,
@@ -454,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCE94F571DD10B57002FB232 /* Build configuration list for PBXNativeTarget "Open House" */ = {
+		DCE94F571DD10B57002FB232 /* Build configuration list for PBXNativeTarget "HouseKeeper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCE94F581DD10B57002FB232 /* Debug */,
