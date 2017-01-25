@@ -1,2 +1,2 @@
-# ohwta-ios
-Open House Walkthrough App for iOS
+# HouseKeeper iOS App
+An open house walk-through app for iOS
