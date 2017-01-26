@@ -10,10 +10,21 @@ import UIKit
 
 class RegistrationViewController: UserViewController {
 
-    override func loadView() {
-        super.loadView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        titleLabel.text = "Registration"
+        button.setTitle("Sign Up", for: .normal)
+        switchScreen.setTitle("Already have an account?", for: .normal)
+        skip.setTitle("Skip registration", for: .normal)
+        
+        button.addTarget(self, action: #selector(RegistrationViewController.handleSwitch), for: .touchUpInside)
     }
-
+    
+    func handleSwitch() {
+        print("switch")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

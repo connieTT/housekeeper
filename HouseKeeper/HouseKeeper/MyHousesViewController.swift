@@ -45,15 +45,6 @@ class MyHousesViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if (true) {
-            let registerViewController = RegistrationViewController()
-            present(registerViewController, animated: false, completion: nil)
-        }
-    }
-    
     func addHouse() {
         let modal = AddHouseViewController()
         modal.modalPresentationStyle = .overCurrentContext

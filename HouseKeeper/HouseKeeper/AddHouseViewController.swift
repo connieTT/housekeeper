@@ -10,15 +10,12 @@ import UIKit
 
 class AddHouseViewController: UIViewController {
     
-    // initiate custom primitive pallet
-    let redColor = UIColor(red:0.95, green:0.35, blue:0.35, alpha:1.00)
-    
     // complete viewDidLoad() responsory function
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Setup view primitives
-        view.backgroundColor = redColor
+        view.backgroundColor = Style.redColor
         
         // title
         let title = UILabel()
@@ -38,7 +35,7 @@ class AddHouseViewController: UIViewController {
         // submission button
         let submit = UIButton()
         submit.setTitle("Add", for: UIControlState.normal)
-        submit.setTitleColor(redColor, for: UIControlState.normal)
+        submit.setTitleColor(Style.redColor, for: UIControlState.normal)
         submit.layer.cornerRadius = 10
         submit.backgroundColor = UIColor.white
         submit.addTarget(self, action: #selector(self.addHouse), for: .touchUpInside)
@@ -46,7 +43,7 @@ class AddHouseViewController: UIViewController {
         // cancellation button
         let cancel = UIButton()
         cancel.setTitle("Cancel", for: UIControlState.normal)
-        cancel.setTitleColor(redColor, for: UIControlState.normal)
+        cancel.setTitleColor(Style.redColor, for: UIControlState.normal)
         cancel.backgroundColor = UIColor.white
         cancel.layer.cornerRadius = 10
         cancel.addTarget(self, action: #selector(self.cancel), for: .touchUpInside)

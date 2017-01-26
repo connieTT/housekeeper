@@ -17,12 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let myHousesViewController = MyHousesViewController()
-        let rootViewController = RootViewController(rootViewController: myHousesViewController)
+        let myHousesVC = MyHousesViewController()
+        let rootVC = RootViewController(rootViewController: myHousesVC)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = rootViewController
+        self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
+        
+        if (true) {
+            let registrationVC = RegistrationViewController()
+            rootVC.present(registrationVC, animated: false, completion: nil)
+        }
         
         return true
     }
