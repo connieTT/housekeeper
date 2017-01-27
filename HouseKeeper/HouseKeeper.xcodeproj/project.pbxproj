@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38824EBB1E3AAFA8005D0A97 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38824EBA1E3AAFA8005D0A97 /* HomeModel.swift */; };
+		38824EBD1E3AAFCD005D0A97 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38824EBC1E3AAFCD005D0A97 /* LocationModel.swift */; };
 		DC0B53F11DD3AE5100DC1795 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B53F01DD3AE5100DC1795 /* LoginViewController.swift */; };
 		DC0B53F31DD3AE6800DC1795 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B53F21DD3AE6800DC1795 /* RegistrationViewController.swift */; };
 		DC0B53F51DD3AF0900DC1795 /* AddHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B53F41DD3AF0900DC1795 /* AddHouseViewController.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		293944705C174774E6A45305 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38824EBA1E3AAFA8005D0A97 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		38824EBC1E3AAFCD005D0A97 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		805A351527C0F79656715E28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DC0B53F01DD3AE5100DC1795 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DC0B53F21DD3AE6800DC1795 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				DCE94F4F1DD10B57002FB232 /* Assets.xcassets */,
 				DCE94F511DD10B57002FB232 /* LaunchScreen.storyboard */,
 				DCE94F541DD10B57002FB232 /* Info.plist */,
+				38824EBA1E3AAFA8005D0A97 /* HomeModel.swift */,
+				38824EBC1E3AAFCD005D0A97 /* LocationModel.swift */,
 			);
 			path = HouseKeeper;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38824EBB1E3AAFA8005D0A97 /* HomeModel.swift in Sources */,
 				DC11A8C01DD6795400E49EB0 /* Criterion.swift in Sources */,
 				DC0B53F11DD3AE5100DC1795 /* LoginViewController.swift in Sources */,
 				DCE94F4B1DD10B57002FB232 /* RootViewController.swift in Sources */,
@@ -291,6 +298,7 @@
 				DC0B53F51DD3AF0900DC1795 /* AddHouseViewController.swift in Sources */,
 				DC0B53F91DD3AF5800DC1795 /* HouseViewController.swift in Sources */,
 				DC0B53F71DD3AF4A00DC1795 /* MyHousesViewController.swift in Sources */,
+				38824EBD1E3AAFCD005D0A97 /* LocationModel.swift in Sources */,
 				DC0B53F31DD3AE6800DC1795 /* RegistrationViewController.swift in Sources */,
 				DCE94F491DD10B57002FB232 /* AppDelegate.swift in Sources */,
 				DC11A8C21DD67A3900E49EB0 /* Category.swift in Sources */,
