@@ -23,7 +23,6 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Style.redColor
-        modalTransitionStyle = .flipHorizontal
         
         // group
         
@@ -60,7 +59,7 @@ class UserViewController: UIViewController {
         skip.setTitleColor(Style.whiteColor, for: .normal)
         skip.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         skip.titleLabel?.textAlignment = .center
-        
+        skip.addTarget(self, action: #selector(UserViewController.handleSkip), for: .touchUpInside)
         
         // insert subviews
         group.addSubview(titleLabel)
@@ -117,7 +116,18 @@ class UserViewController: UIViewController {
             make.center.equalToSuperview()
             make.height.equalTo(250)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
     }
     
     func handleSwitch() {
@@ -130,6 +140,11 @@ class UserViewController: UIViewController {
             (navigationController?.viewControllers[1])!,
             (navigationController?.viewControllers[0])!
             ], animated: false)
+    }
+    
+    func handleSkip() {
+        navigationController?.view.layer.removeAllAnimations()
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
