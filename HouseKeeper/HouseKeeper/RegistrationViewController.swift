@@ -18,11 +18,11 @@ class RegistrationViewController: UserViewController {
         switchScreen.setTitle("Already have an account?", for: .normal)
         skip.setTitle("Skip registration", for: .normal)
         
-        button.addTarget(self, action: #selector(RegistrationViewController.handleSwitch), for: .touchUpInside)
+        button.addTarget(self, action: #selector(RegistrationViewController.handleRegistration), for: .touchUpInside)
     }
     
-    func handleSwitch() {
-        print("switch")
+    func handleRegistration() {
+        dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

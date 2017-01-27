@@ -25,8 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         if (true) {
-            let registrationVC = RegistrationViewController()
-            rootVC.present(registrationVC, animated: false, completion: nil)
+            let userVC = UINavigationController()
+            userVC.setViewControllers([LoginViewController(), RegistrationViewController()], animated: false)
+            userVC.setNavigationBarHidden(true, animated: false)
+            rootVC.present(userVC, animated: false, completion: nil)
         }
         
         return true

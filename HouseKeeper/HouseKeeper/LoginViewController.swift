@@ -13,7 +13,10 @@ class LoginViewController: UserViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        titleLabel.text = "Login"
+        button.setTitle("Sign In", for: .normal)
+        switchScreen.setTitle("Don't have an account?", for: .normal)
+        skip.setTitle("Skip sign in", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

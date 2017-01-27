@@ -23,6 +23,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Style.redColor
+        modalTransitionStyle = .flipHorizontal
         
         // group
         
@@ -52,6 +53,7 @@ class UserViewController: UIViewController {
         switchScreen.setTitleColor(Style.whiteColor, for: .normal)
         switchScreen.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         switchScreen.titleLabel?.textAlignment = .center
+        switchScreen.addTarget(self, action: #selector(UserViewController.handleSwitch), for: .touchUpInside)
         
         // skip
         skip.setTitle("Skip", for: .normal)
@@ -107,6 +109,7 @@ class UserViewController: UIViewController {
             make.width.equalToSuperview()
             make.bottom.equalTo(view.snp.bottom).inset(20)
             make.centerX.equalToSuperview()
+            make.height.equalTo(17)
         }
         
         group.snp.makeConstraints { (make) in
@@ -115,6 +118,18 @@ class UserViewController: UIViewController {
             make.height.equalTo(250)
         }
         
+    }
+    
+    func handleSwitch() {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = "flip"
+        transition.subtype = kCATransitionFromLeft
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.setViewControllers([
+            (navigationController?.viewControllers[1])!,
+            (navigationController?.viewControllers[0])!
+            ], animated: false)
     }
 
     override func didReceiveMemoryWarning() {
