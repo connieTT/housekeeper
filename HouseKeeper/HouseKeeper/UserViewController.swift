@@ -35,10 +35,16 @@ class UserViewController: UIViewController {
         // email
         email.placeholder = "Email"
         email.textColor = Style.whiteColor
+        email.autocapitalizationType = .none
+        email.autocorrectionType = .no
+        email.keyboardType = .emailAddress
         
         // password
         password.placeholder = "Password"
         password.textColor = Style.whiteColor
+        password.isSecureTextEntry = true
+        password.autocapitalizationType = .none
+        password.autocorrectionType = .no
         
         // button
         button.setTitle("Button", for: .normal)
