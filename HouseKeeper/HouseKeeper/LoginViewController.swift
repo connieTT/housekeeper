@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UserViewController {
 
@@ -17,6 +18,29 @@ class LoginViewController: UserViewController {
         button.setTitle("Sign In", for: .normal)
         switchScreen.setTitle("Don't have an account?", for: .normal)
         skip.setTitle("Skip sign in", for: .normal)
+        
+        button.addTarget(self, action: #selector(LoginViewController.handleLogin), for: .touchUpInside)
+    }
+    
+    func handleLogin() {
+        if !isValidEmail(emailString: email.text!) {
+            alert(title: "Login Failed", message: "Invalid email.")
+        } else if !isValidPassword(passwordString: password.text!) {
+            alert(title: "Login Failed", message: "Invalid password.")
+        } else {
+            let parameters: Parameters = ["email": email.text!, "password": password.text!]
+            Alamofire.request(Constant.host + "/createSession", parameters: parameters).responseString { response in
+                if ((response.response) != nil) {
+                    if response.result.isSuccess && (response.response?.statusCode)! < 400 {
+                        self.handleDismiss()
+                    } else {
+                        self.alert(title: "Login Failed", message: response.result.value!)
+                    }
+                } else {
+                    self.alert(title: "Login Failed", message: "Cannot connect to server.")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

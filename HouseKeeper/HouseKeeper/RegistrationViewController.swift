@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegistrationViewController: UserViewController {
 
@@ -22,7 +23,30 @@ class RegistrationViewController: UserViewController {
     }
     
     func handleRegistration() {
-        dismiss(animated: true, completion: nil)
+        if !isValidEmail(emailString: email.text!) {
+            alert(title: "Registration Failed", message: "Invalid email.")
+        } else if !isValidPassword(passwordString: password.text!) {
+            alert(title: "Registration Failed", message: "Password must be between 8 and 32 characters.")
+        } else {
+            let parameters: Parameters = ["email": email.text!, "password": password.text!]
+            Alamofire.request(Constant.host + "/createUser", parameters: parameters).responseString { response in
+                if (response.response != nil) {
+                    if response.result.isSuccess && (response.response?.statusCode)! < 400 {
+                        self.handleDismiss()
+                    } else {
+                        self.alert(title: "Registration Failed", message: response.result.value!)
+                    }
+                } else {
+                    self.alert(title: "Registration Failed", message: "Cannot connect to server.")
+                }
+            }
+        }
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        _ = super.textFieldShouldReturn(textField)
+        handleRegistration()
+        return false
     }
     
     override func didReceiveMemoryWarning() {

@@ -9,8 +9,9 @@
 import UIKit
 import SnapKit
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, UITextFieldDelegate {
     
+    let wrapper = UIView()
     let group = UIView()
     let titleLabel = UILabel()
     let email = TextField()
@@ -18,13 +19,15 @@ class UserViewController: UIViewController {
     let button = UIButton()
     let switchScreen = UIButton()
     let skip = UIButton()
+    var keyboardHeight = CGFloat(200.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Style.redColor
-        
-        // group
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UserViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserViewController.updateKeyboardHeight), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         // title
         titleLabel.text = "Title"
@@ -38,6 +41,7 @@ class UserViewController: UIViewController {
         email.autocapitalizationType = .none
         email.autocorrectionType = .no
         email.keyboardType = .emailAddress
+        email.delegate = self
         
         // password
         password.placeholder = "Password"
@@ -45,6 +49,7 @@ class UserViewController: UIViewController {
         password.isSecureTextEntry = true
         password.autocapitalizationType = .none
         password.autocorrectionType = .no
+        password.delegate = self
         
         // button
         button.setTitle("Button", for: .normal)
@@ -65,7 +70,7 @@ class UserViewController: UIViewController {
         skip.setTitleColor(Style.whiteColor, for: .normal)
         skip.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         skip.titleLabel?.textAlignment = .center
-        skip.addTarget(self, action: #selector(UserViewController.handleSkip), for: .touchUpInside)
+        skip.addTarget(self, action: #selector(UserViewController.handleDismiss), for: .touchUpInside)
         
         // insert subviews
         group.addSubview(titleLabel)
@@ -74,7 +79,8 @@ class UserViewController: UIViewController {
         group.addSubview(button)
         group.addSubview(switchScreen)
         view.addSubview(skip)
-        view.addSubview(group)
+        wrapper.addSubview(group)
+        view.addSubview(wrapper)
         
         // make contraints
         titleLabel.snp.makeConstraints { (make) in
@@ -122,6 +128,13 @@ class UserViewController: UIViewController {
             make.center.equalToSuperview()
             make.height.equalTo(250)
         }
+        
+        wrapper.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,9 +161,62 @@ class UserViewController: UIViewController {
             ], animated: false)
     }
     
-    func handleSkip() {
+    func handleDismiss() {
         navigationController?.view.layer.removeAllAnimations()
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.wrapper.snp.updateConstraints { (make) in
+                make.bottom.equalTo(-self.keyboardHeight + 50)
+            }
+            self.wrapper.superview?.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.wrapper.snp.updateConstraints { (make) in
+                make.bottom.equalTo(0)
+            }
+            self.wrapper.superview?.layoutIfNeeded()
+        }
+    }
+    
+    func updateKeyboardHeight(notification: Notification) {
+        keyboardHeight = ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size.height)!
+    }
+    
+    func isValidEmail(emailString: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailString) && emailString.characters.count <= 256
+    }
+    
+    func isValidPassword(passwordString: String) -> Bool {
+        if passwordString.characters.count <= 32 && passwordString.characters.count >= 8 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
